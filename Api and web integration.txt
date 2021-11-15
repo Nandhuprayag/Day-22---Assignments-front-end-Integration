@@ -1,0 +1,21 @@
+How to execute API and web data:
+
+1. create outer Box in JS or HTML document side
+2. Extract the API information by using fetch
+
+Fetch:
+returns Promise function 
+.then
+.catch
+
+3.use for orfor each loop
+*if using for loop 
+
+please use .then dataname 
+for(let i=0;i<=dataobj.length;i++)
+
+*if use foreach loop
+SYNTAX:
+1. name foreach (element{
+//statements here use DOM method
+}
