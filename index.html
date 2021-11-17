@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <style>
+        #demo{
+           width: 750px;
+           height: 5600px;
+           border: 3px solid grey;
+           display:flex;
+           direction: row;
+           flex-wrap: wrap;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div id="demo"></div>
+    <!-- Create a outer Box to display the Countries content  -->
+<script>
+
+    fetch("https://restcountries.com/v3.1/all")//Fetch keyword is using GET method 
+    .then(function(data)//indicates return promise method and by stroing to the .then method(resolve)
+    {
+        return data.json(); //returning a promise like data conversion
+    })
+    .then(function(dataobj)
+    {
+        for(var i=0;i<dataobj.length;i++)
+        {
+            var innerbox=document.createElement("div");
+            innerbox.innerText=dataobj[i].name.common;
+            innerbox.style.backgroundColor="pink";
+            innerbox.style.border="1px solid white";
+            innerbox.style.width="30%";
+            innerbox.style.textAlign="center";
+
+            var flag=document.createElement("img");
+            flag.setAttribute("src",dataobj[i].flags.png);
+            flag.setAttribute("width","200px");
+
+
+            innerbox.appendChild(flag);
+
+            document.getElementById("demo").appendChild(innerbox);
+
+        }
+    })
+    .catch(function(error)
+    {
+        console.error(error);
+    })
+    
+       
+   
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+<!-- function calculateAge(year) {
+    return new Promise(function(resolve,reject){
+        let today=new Date();
+        let age=today.getFullYear()-year;
+
+        if(age>18)
+        {
+            resolve(age);
+        }
+        else
+        {
+            reject('NOt Eligible')
+        }
+
+    });
+}
+function assignJob(age)
+{
+    return new Promise(function(resolve,reject)
+    {
+        if(age<18)
+        {
+            resolve('go to offc')
+        }
+        else
+        {
+            resolve('go to school')
+        }
+    })
+}
+
+    
+
+calculateAge(1980).then(function (data) {return assignJob(data)}).then(function(data2) {console.log(data2)}).catch(function(err){console.error(err) }); -->
+
+
+
+
+<!-- 
+
+let outerboard=document.createElement("div")
+outerboard.style.width="500px";
+outerboard.style.height="500px";
+outerboard.style.display="flex";
+outerboard.style.flexWrap="wrap";
+for(let i=1;i<=1;i++)
+{
+     let box=document.createElement("div");
+     box.style.backgroundColor="pink";
+     box.style.height="100px";
+     box.style.width="100px";
+     box.style.marginBottom="3px";
+     box.style.marginRight="2px";
+     box.setAttribute("id",i);
+
+  
+     fetch("https://restcountries.com/v3.1/all")
+     .then(function(data)
+     {
+         return data.json();
+     })
+     .then(function(dataobj)
+     {
+         return assign(dataobj)
+     })
+     
+     function assign(dataobj)
+     {
+         dataobj.forEach(element => {
+             let me=document.createElement("div");
+             me.innerText=console.log(dataobj[0].region);
+
+
+         });
+         
+     }
+     
+     
+     outerboard.appendChild(box);
+    
+ 
+
+ document.body.appendChild(outerboard);
+    
+ } -->
